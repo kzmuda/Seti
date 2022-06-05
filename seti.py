@@ -10,8 +10,21 @@ def decimal_to_binary(decimal_number):
 
 
 def binary_to_decimal(binary_digits):
-    """Returns the decimal (number) representation of a binary number represented by an array of 0/1 digits"""
-    pass
+    decimal = 0
+    power = 0
+    for x in binary_digits[::-1]:
+        binary = x * (2**power)
+        decimal += binary
+        power += 1
+
+    #     for x in range(1, (len(binary_digits)+1)):
+    #
+    #         binary = binary_digits[-x] * (2 ** power)
+    #         decimal += binary
+    #         power += 1
+    return decimal
+    #         # 01010
+    #         #  0 8 0 2 0 = 10
 
 
 def decimal_to_base(decimal_number, destination_base):
@@ -32,6 +45,8 @@ def digits_as_string(digits, base):
 def convert_base(original_digits, original_base, destination_base):
     """Conversion from any base to any other base"""
     pass 
-
+# print(binary_to_decimal([1,0,1,0]))
+# lista =bin(int(10))[2::]
+# print(lista)
 # list = [5, 4, 3, 2, 1]
 # print(list[::-1])
