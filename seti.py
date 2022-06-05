@@ -1,6 +1,12 @@
 def decimal_to_binary(decimal_number):
-    """Returns the array of digits in binary representation of a decimal number"""
-    pass
+    binary_numbers_list = []
+    while decimal_number > 0:
+        binary_number = decimal_number % 2
+        binary_numbers_list.append(binary_number)
+        #decimal_number = (decimal_number - binary_number) / 2
+        decimal_number = decimal_number // 2
+    #binary_numbers_list = list(reversed(binary_numbers_list))
+    return binary_numbers_list[::-1]
 
 
 def binary_to_decimal(binary_digits):
@@ -26,3 +32,6 @@ def digits_as_string(digits, base):
 def convert_base(original_digits, original_base, destination_base):
     """Conversion from any base to any other base"""
     pass 
+
+# list = [5, 4, 3, 2, 1]
+# print(list[::-1])
