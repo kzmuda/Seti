@@ -8,6 +8,9 @@
 #     #binary_numbers_list = list(reversed(binary_numbers_list))
 #     return binary_numbers_list[::-1]
 
+import re
+
+
 def decimal_to_binary(decimal_number):
     decimal_to_base(decimal_number,2)
 
@@ -57,9 +60,22 @@ def base_to_decimal(digits, original_base):
     return decimal
 
 
+
 def digits_as_string(digits, base):
+    if base > 16:
+        raise ValueError
     """Returns the string representation of an array of digits given in base"""
-    pass
+    result = ""
+    hex_numbers = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
+    # [3, 5, 12] => "53C"
+    for x in digits:
+        if x >= base or x<0:
+            raise ValueError
+        if x <= 9:
+            result = result + str(x)
+        else:
+            result = result + hex_numbers[x]          
+    return result
 
 
 def convert_base(original_digits, original_base, destination_base):
@@ -70,4 +86,6 @@ def convert_base(original_digits, original_base, destination_base):
 # print(lista)
 # list = [5, 4, 3, 2, 1]
 # print(list[::-1])
-print(decimal_to_base(20,2))
+# print(decimal_to_base(20,2))
+
+print(digits_as_string([2,5,16], 1))
